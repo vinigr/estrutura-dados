@@ -1,8 +1,6 @@
-package estacionamento;
-
 import java.util.Stack;
 
-public class Pilha {
+public class Estacionamento {
     private Stack pilha1 = new Stack();
     private Stack pilha2 = new Stack();
 
@@ -10,7 +8,7 @@ public class Pilha {
         if(pilha1.size() < 10) {
             pilha1.push(entrada);            
         } else {
-            System.out.println("Estacionameto cheio!");
+            System.out.println("Estacionamento cheio!");
         }
     }
     
@@ -20,10 +18,12 @@ public class Pilha {
             while(!pilha1.isEmpty()) {
             carroTemp = (Carro) pilha1.pop();
 
-                if(carroTemp.getPlaca().equals(placa)) {     
-                    System.out.println("Placa: "+ carroTemp.getPlaca() + 
-                            "\n" + "Vezes que foi movimentado: " 
-                            + carroTemp.getNumeroVezes());
+                if(carroTemp.getPlaca().equals(placa)) {
+                    System.out.println("-----------------------------------------");
+                    System.out.println("Placa: "+ carroTemp.getPlaca()+ 
+                            "\n" + "Foi movimentado " 
+                            + carroTemp.getNumeroVezes()+" vezes");
+                    System.out.println("-----------------------------------------");
                     while(!pilha2.isEmpty()) {
                         pilha1.push(pilha2.pop());
                     }
@@ -56,5 +56,10 @@ public class Pilha {
         }
 
         return existe;
+    }
+    
+    public void imprimirTopo(){
+        
+
     }
 }
